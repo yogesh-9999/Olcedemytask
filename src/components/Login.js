@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import GoogleButton from "react-google-button";
 import { useUserAuth } from "../context/UserAuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { logIn, googleSignIn } = useUserAuth();
+  const { logIn} = useUserAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -23,20 +22,12 @@ const Login = () => {
     }
   };
 
-  const handleGoogleSignIn = async (e) => {
-    e.preventDefault();
-    try {
-      await googleSignIn();
-      navigate("/home");
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  
 
   return (
     <>
       <div className="p-4 box rounded-3 bg-info">
-        <h2 className="mb-3">AVTAAR LOGIN</h2>
+        <h2 className="mb-3">OLCADEMY LOGIN</h2>
         {error && <Alert variant="warning">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-4" controlId="formBasicEmail">

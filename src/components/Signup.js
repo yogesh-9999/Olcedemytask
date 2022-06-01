@@ -10,6 +10,8 @@ const Signup = () => {
   const[Phone,setPhone]=useState("");
   const[name,setName]=useState("");
   const [password, setPassword] = useState("");
+  const[gender,setGender]=useState("Male");
+  
   const { signUp } = useUserAuth();
   let navigate = useNavigate();
 
@@ -38,6 +40,13 @@ const Signup = () => {
               type="text"
               placeholder="Full name"
               onChange={(e) => setName(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Control
+              type="gender"
+              placeholder="Gender"
+              onChange={(e) => setGender(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPhone">

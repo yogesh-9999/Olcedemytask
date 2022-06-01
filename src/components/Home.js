@@ -3,8 +3,10 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
 
+import  Main  from "./Main";
+
 const Home = () => {
-  const { logOut, user } = useUserAuth();
+  const { logOut } = useUserAuth();
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -14,11 +16,16 @@ const Home = () => {
       console.log(error.message);
     }
   };
+
+
   return (
     <>
       <div className="p-1 box mt-1 text-center">
-        Hello Welcome to Avtaar Program <br />
+        Hello Welcome to Olcademy <br />
+        <Main/>
         
+
+        {/* <Wform/> */}
       </div>
       <div className="d-grid gap-2">
         <Button variant="primary" onClick={handleLogout}>
